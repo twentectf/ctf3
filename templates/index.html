@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rabbit Hole Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .calculator {
+            margin: 0 auto;
+            width: 300px; 
+        }
+        .calculator button {
+            width: 100px; 
+            height: 50px; 
+            font-size: 20px; 
+            margin: 5px; 
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="calculator">
+        <h3>Generate a math equation:</h3>
+        <input type="text" id="display" disabled>
+        <br>
+        <button onclick="displayRandom()">Generate</button>
+    </div>
+
+    <script>
+        function displayRandom() {
+            // generate random numbers between 1 and 100
+            const num1 = Math.floor(Math.random() * 100) + 1;
+            const num2 = Math.floor(Math.random() * 100) + 1;
+            const operator = ['+', '-', '*', '/'][Math.floor(Math.random() * 4)]; 
+            const expression = `${num1} ${operator} ${num2}`;
+            let result;
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num1 / num2;
+                    break;
+            }
+            document.getElementById('display').value = `${expression} = ${result}`;
+        }
+    </script>
+
+    <!--
+    Hey, don't forget to edit file permissions to prevent unauthorized access by robots
+    -->
+
+</body>
+</html>
